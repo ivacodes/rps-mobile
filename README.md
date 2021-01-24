@@ -4,12 +4,12 @@
 
 To Install dependencies
 
-```
+```cli
 yarn install
 ```
 
 To run app
 
-```
+```cli
 yarn web
 ```
