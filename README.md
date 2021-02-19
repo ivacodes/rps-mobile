@@ -16,6 +16,6 @@ yarn web
 
 ### Components
 
-### Styling
-
 react native elements
+
+### Styling
