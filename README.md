@@ -13,3 +13,5 @@ To run app
 ```cli
 yarn web
 ```
+
+### Components
