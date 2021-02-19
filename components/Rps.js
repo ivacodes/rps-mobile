@@ -75,21 +75,24 @@ class Rps extends Component {
       computerScore,
     } = this.state;
     return (
-      <View style={styles.choiceContainer}>
-        {options.map((option, i) => (
-          <Text
-            key={i}
-            className='option'
-            onPress={() => this.getPlayerChoice(i)}
-          >
-            {option}
-          </Text>
-        ))}
+      <View style={styles.gameContainer}>
+        <Text style={styles.gameTitle}>Rock, paper, scissors!</Text>
+        <Text style={styles.choiceContainer}>
+          {options.map((option, i) => (
+            <Text
+              key={i}
+              className='option'
+              onPress={() => this.getPlayerChoice(i)}
+            >
+              {option}
+            </Text>
+          ))}
+        </Text>
         <Text style={styles.resultContainer}>
           {playerChoice !== "" ? (
             <Text>
               You {options[playerChoice]} VS {options[computerChoice]} AI
-              {message}
+              <Text>{message}</Text>
             </Text>
           ) : null}
         </Text>
@@ -101,7 +104,9 @@ class Rps extends Component {
         ) : null}
 
         {playerChoice !== "" ? (
-          <Text onPress={() => this.resetGame()}>Reset</Text>
+          <Text onPress={() => this.resetGame()} style={styles.resetButton}>
+            Reset
+          </Text>
         ) : null}
       </View>
     );
@@ -109,23 +114,32 @@ class Rps extends Component {
 }
 
 const styles = StyleSheet.create({
-  choiceContainer: {
-    flex: 1,
-    flexDirection: "column",
-    alignItems: "center",
+  gameContainer: {
+    width: "70%",
+    height: "50%",
+    border: "white",
+    backgroundColor: "black",
     justifyContent: "center",
+    alignItems: "center",
+  },
+  gameTitle: {
+    color: "white",
+    fontSize: "80",
+  },
+  choiceContainer: {
+    color: "white",
   },
   resultContainer: {
-    alignItems: "center",
-    justifyContent: "center",
+    color: "white",
   },
   scoreContainer: {
+    flexDirection: "column",
     width: "90%",
-
-    justifyContent: "space-around",
+    color: "white",
   },
   resetButton: {
     width: "90%",
+    color: "white",
   },
 });
 
