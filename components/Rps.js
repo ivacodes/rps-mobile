@@ -75,7 +75,7 @@ class Rps extends Component {
       computerScore,
     } = this.state;
     return (
-      <View>
+      <View style={styles.choiceContainer}>
         {options.map((option, i) => (
           <Text
             key={i}
@@ -85,7 +85,7 @@ class Rps extends Component {
             {option}
           </Text>
         ))}
-        <Text>
+        <Text style={styles.resultContainer}>
           {playerChoice !== "" ? (
             <Text>
               You {options[playerChoice]} VS {options[computerChoice]} AI
@@ -94,7 +94,7 @@ class Rps extends Component {
           ) : null}
         </Text>
         {playerChoice !== "" ? (
-          <Text>
+          <Text style={styles.scoreContainer}>
             <Text>Human: {playerScore}</Text>
             <Text>AI: {computerScore}</Text>
           </Text>
@@ -107,5 +107,26 @@ class Rps extends Component {
     );
   };
 }
+
+const styles = StyleSheet.create({
+  choiceContainer: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  resultContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  scoreContainer: {
+    width: "90%",
+
+    justifyContent: "space-around",
+  },
+  resetButton: {
+    width: "90%",
+  },
+});
 
 export default Rps;
